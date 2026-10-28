@@ -1,0 +1,60 @@
+{
+  "name": "xuqiao",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Xuqiao — a locally hosted QQ agent with an official QQNT kernel host, OneBot v11, tool plugins, personas and session memory",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "files": [
+    "src/**/*.mjs",
+    "scripts/**/*.mjs",
+    "docs/**/*.md",
+    "native/**/*.c",
+    "examples/**/*.mjs",
+    "examples/**/*.py",
+    "test/**/*.mjs",
+    ".env.example",
+    "Dockerfile",
+    "compose.yaml",
+    "start.cmd"
+  ],
+  "scripts": {
+    "init": "node scripts/init.mjs",
+    "start": "node --env-file-if-exists=.env src/main.mjs",
+    "launch": "node scripts/launch.mjs",
+    "demo": "node scripts/demo.mjs",
+    "cli": "node --env-file-if-exists=.env scripts/cli.mjs",
+    "native:check": "node --env-file-if-exists=.env scripts/native-check.mjs",
+    "qq:setup": "node --env-file-if-exists=.env scripts/qq-setup.mjs",
+    "qq:build": "node --env-file-if-exists=.env scripts/qq-build.mjs",
+    "qq:check": "node --env-file-if-exists=.env scripts/qq-check.mjs",
+    "qq:prepare": "node scripts/qq-prepare.mjs",
+    "qq:download": "node --env-file-if-exists=.env scripts/qq-download.mjs",
+    "login": "node --env-file-if-exists=.env scripts/login-page.mjs",
+    "source:export": "node scripts/source-package.mjs",
+    "web:qa": "node scripts/web-qa.mjs",
+    "agent:qa": "node scripts/agent-web-qa.mjs",
+    "plugins:qa": "node scripts/plugin-web-qa.mjs",
+    "memes:qa": "node scripts/meme-web-qa.mjs",
+    "memes:export": "node scripts/meme-plugin.mjs",
+    "voicestudio:export": "node scripts/voicestudio-plugin.mjs",
+    "webfetch:export": "node scripts/python-web-fetch-plugin.mjs",
+    "webfetch:install": "node --env-file-if-exists=.env scripts/install-web-fetch.mjs",
+    "webfetch:check": "node --env-file-if-exists=.env scripts/check-web-fetch.mjs",
+    "groupchat:qa": "node scripts/group-chat-web-qa.mjs",
+    "groupchat:export": "node scripts/group-chat-plus-plugin.mjs",
+    "groupchat:install": "node --env-file-if-exists=.env scripts/install-group-chat-plus.mjs",
+    "image:selftest": "node scripts/image-self-test.mjs",
+    "test": "node scripts/test.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "fast-xml-parser": "5.11.2",
+    "fflate": "0.8.3",
+    "pdf-parse": "2.4.5",
+    "silk-wasm": "3.7.1",
+    "ws": "8.22.0"
+  }
+}

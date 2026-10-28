@@ -1,0 +1,19 @@
+services:
+  qqbot:
+    build: .
+    restart: unless-stopped
+    init: true
+    env_file: .env
+    environment:
+      # The Windows kernel cannot run in this Linux image. Opt in explicitly.
+      QQ_DRIVER: ${QQ_DOCKER_DRIVER:?Set QQ_DOCKER_DRIVER to native (experimental), demo or scaffold; kernel requires Windows x64}
+      HOST: 0.0.0.0
+      PORT: 5700
+      DATA_DIR: /app/data
+    ports:
+      - "127.0.0.1:5700:5700"
+    volumes:
+      - qqbot-data:/app/data
+    stop_grace_period: 30s
+volumes:
+  qqbot-data:
